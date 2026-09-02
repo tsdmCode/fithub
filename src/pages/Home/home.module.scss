@@ -1,0 +1,88 @@
+@use '../../styles/variables' as global;
+
+.homeStyle {
+  height: 100vh;
+  width: 80vw;
+  display: flex;
+  @include global.CenterColumn;
+  padding: 20px 0;
+  
+  .heroClass {
+    position: relative;
+    width: 100%;
+    max-width: 800px; 
+    height: 400px;
+    cursor: pointer; 
+    border-radius: 10px;
+    overflow: hidden; 
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    figcaption {
+      position: absolute;
+      bottom: 5%;
+      left: 10%;
+      
+      h2 {
+        color: #ffffff;
+        font-weight: 600;
+        font-family: open sans, sans-serif;
+        font-size: global.$heroheader;
+        margin: 0; 
+      }
+    }
+  }
+
+  .forYouContainer {
+    width: 100%;
+    max-width: 800px; 
+    margin-top: 30px; 
+    font-family: global.$MAINFONT;
+
+    h3 {
+      font-weight: global.$regular;
+      margin: 0; 
+      text-align: left; 
+      font-size: global.$subheader;
+    }
+
+    .classesContainer {
+        display: flex;
+        overflow-x: scroll;
+        gap: 5rem;
+        height: 400px;
+        article {
+          width: 400px;
+          flex-grow: 1;
+        }
+        figure {
+            margin: 0;
+            width: 100px;
+            height: 8rem;
+
+            img {
+                border-radius: 10px;
+                height: 80%;
+            }
+            margin-bottom: 1rem;
+        }
+
+        .rating {
+          background-color: global.$shadygray;
+          height: 1rem;
+          width: 100%;
+
+          >div {
+            background-color: global.$calmpink;
+            display: inline-block;
+            height: 100%;
+            width: 20%;
+          }
+        }
+    }
+  }
+}

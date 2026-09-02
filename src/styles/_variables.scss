@@ -1,0 +1,32 @@
+// #region color
+
+$calmpink: #f4a88e;
+$shadygray: #e4e4e4;
+
+// #endregion
+
+// #region fonts
+
+$MAINFONT:
+  Trebuchet MS,
+  sans-serif;
+$SECONDARYFONT: open-sans, sans-serif;
+
+// #endregion
+
+$thin: 300;
+$regular: 400;
+$bold: 600;
+
+$smalltext: 0.875rem; //14px
+$regulartext: 1.125rem; //18px
+$subheader: 1.375rem; //22px
+$pageheader: 1.5rem; //24px
+$heroheader: 2.5rem; //40px
+
+@mixin CenterColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  margin: 0 auto; 
+}
