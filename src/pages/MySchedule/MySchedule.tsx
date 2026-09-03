@@ -8,7 +8,7 @@ import Booking from "../../components/Booking/Booking";
 // Dette view viser en liste over de hold en bruger er tilmeldt, samt ugedag og
 // tidspunkt. Når en bruger klikker på en ”Class” i listen, bliver de sendt til ”Class
 // Details”.
-//TODO: Lav booking component om til links, find ud af det lort med userData
+//TODO: Lav booking component om til links
 export default function MySchedule() {
   const {userData} = useContext(AuthContext)
   const {data, isLoading, error} = useFetch<BookingType[]>(import.meta.env.VITE_URL + "/api/bookings")
@@ -17,7 +17,7 @@ export default function MySchedule() {
   // if (!userData) {
   //     navigate("/home")
   // }
-  const filteredBookings = data ? data.filter((booking) => booking.id === userData?.id) : null
+  const filteredBookings = data ? data.filter((booking) => booking.id === userData?.user.id) : null
   const renderedBookings = filteredBookings?.map((booking) => <Booking id={booking.teamId} />)
   return (<div className={style.myscheduleStyle}>
     {renderedBookings}
