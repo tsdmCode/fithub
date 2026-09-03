@@ -15,6 +15,7 @@ import type { Booking, TeamDetails } from '../../types/types';
 // knappen. Hvis en bruger ikke er logget ind, vises knappen ikke. Det skal ikke være
 // muligt at tilmelde sig samme hold flere gange. Det skal ikke være muligt at tilmelde
 // sig mere end et hold på en dag.
+//todo: styling og kig i booking logik om signet etc
 export default function ClassDetails() {
   const { id } = useParams();
   const { data, isLoading, error } = useFetch<TeamDetails>(`http://localhost:3000/api/teams${id}`);

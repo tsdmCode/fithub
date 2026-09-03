@@ -8,6 +8,7 @@ import Booking from "../../components/Booking/Booking";
 // Dette view viser en liste over de hold en bruger er tilmeldt, samt ugedag og
 // tidspunkt. Når en bruger klikker på en ”Class” i listen, bliver de sendt til ”Class
 // Details”.
+//TODO: Lav booking component om til links, find ud af det lort med userData
 export default function MySchedule() {
   const {userData} = useContext(AuthContext)
   const {data, isLoading, error} = useFetch<BookingType[]>("http://localhost:3000/api/bookings")

@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import style from './navmenu.module.scss';
 import { NavLink } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
-
+//todo: færdiggør styling og login funktion, lav også register form og logik til det
 export default function NavMenu({setNavVis}: {setNavVis: (arg0: boolean) => void}) {
   const {email, setEmail} = useState<string>("");
   const {password, setPassword} = useState<string>("");
