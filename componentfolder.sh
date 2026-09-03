@@ -1,6 +1,6 @@
-# $1 er navnet på component $2 er tsx eller jsx
+# $1 er navnet på component $2 er tsx eller jsx $3 er om du vil have "components" eller "pages"
 echo "Creating new folder"
-cd src/components/
+cd src/$3/
 
 mkdir $1
 cd $1

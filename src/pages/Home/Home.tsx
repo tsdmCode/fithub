@@ -10,7 +10,7 @@ import Navbar from '../../components/Navbar/Navbar';
 //lav navbar og implementer login
 export default function Home() {
   //et fetch teams, vælg et random, render det som en figure, render resten i en sammen der kan horizono scrollo
-  const { data } = useFetch<Teams[]>('http://localhost:3000/api/teams');
+  const { data } = useFetch<Teams[]>(import.meta.env.VITE_URL + '/api/teams');
   const randomInt = useRandomIndex(data);
   const navigate = useNavigate();
   console.log('data:', data);
@@ -21,8 +21,8 @@ export default function Home() {
     <div className={style.homeStyle}>
       <Navbar header="Popular classes" />
 
-      <figure className={style.heroClass} onClick={() => navigate(`/teams/${randomClass?.id}`)}>
-        <img src={'http://localhost:3000' + randomClass?.image.url} alt={randomClass?.name} />
+      <figure className={style.heroClass} onClick={() => navigate(`/team/${randomClass?.id}`)}>
+        <img src={import.meta.env.VITE_URL + randomClass?.image.url} alt={randomClass?.name} />
         <figcaption>
           <h2>{randomClass?.name}</h2>
         </figcaption>
@@ -32,9 +32,9 @@ export default function Home() {
         <h3>Classes for you</h3>
         <div className={style.classesContainer}>
           {data?.map((team) => (
-            <article key={team.id}>
+            <article onClick={() => navigate(`/team/${team.id}`)} key={team.id}>
               <figure>
-                <img src={`http://localhost:3000${team.image.url}`} alt={team.name} />
+                <img src={import.meta.env.VITE_URL + `${team.image.url}`} alt={team.name} />
                 <figcaption>{team.name}</figcaption>
               </figure>
               <div className={style.rating}>

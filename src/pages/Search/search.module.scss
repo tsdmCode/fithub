@@ -1,3 +1,5 @@
-.searchStyle {
+@use "../../styles/variables" as global;
 
+.searchStyle {
+    @include global.CenterColumn;
 }

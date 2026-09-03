@@ -9,19 +9,20 @@ export default function Navbar({ header = '' }) {
   const [navVis, setNavVis] = useState(false)
   const location = useLocation();
   const path = location.pathname;
+  console.log(path)
   const navigate = useNavigate();
   console.log('location:', location);
 
   return (
     <div className={style.navbarStyle}>
-      {path === '/home' ? (
+      {path != '/home' ? (
         <BiCaretLeft onClick={() => navigate('/home')} style={{ color: '#D9D9D9' }} size={24} />
       ) : (
         <BiCaretUp style={{ color: '#D9D9D9' }} size={24} />
       )}
       <h2>{header}</h2>
       <HiMenuAlt3 onClick={() => setNavVis(true)} style={{ color: '#D9D9D9', cursor: 'pointer' }} size={24} />
-      {navVis && <NavMenu setNavVis={() => setNavVis} />}
+      {navVis && <NavMenu setNavVis={setNavVis} />}
     </div>
   );
 }

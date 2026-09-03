@@ -2,14 +2,35 @@ import { useContext, useState } from 'react';
 import style from './navmenu.module.scss';
 import { NavLink } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
-//todo: færdiggør styling og login funktion, lav også register form og logik til det
-export default function NavMenu({setNavVis}: {setNavVis: (arg0: boolean) => void}) {
-  const {email, setEmail} = useState<string>("");
-  const {password, setPassword} = useState<string>("");
-  const { userData, logout } = useContext(AuthContext);
+//todo: færdiggør styling, lav også register form og logik til det
+export default function NavMenu({ setNavVis }: { setNavVis: (arg0: boolean) => void }) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { userData, setUserData, logout } = useContext(AuthContext);
 
-  function handleLogin(e: SubmitEvent) {
+  async function handleLogin(e: React.SubmitEvent) {
     e.preventDefault();
+
+    await fetch('http://localhost:3000/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username: email, password }),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.text();
+      })
+      .then((text) => {
+        const data = JSON.parse(text);
+        setUserData(data);
+      })
+      .catch((error) => {
+        console.error('Error logging in: ', error);
+      });
   }
 
   return (
@@ -25,21 +46,26 @@ export default function NavMenu({setNavVis}: {setNavVis: (arg0: boolean) => void
 
           {userData && (
             <>
-            <li>
-              <NavLink to={'/myschedule'}>My Schedule</NavLink>
-            </li>
-            <li onClick={() => logout}>Log out</li>
+              <li>
+                <NavLink to={'/myschedule'}>My Schedule</NavLink>
+              </li>
+              <li onClick={logout}>Log out</li>
             </>
           )}
         </ul>
-        {!userData && 
+        {!userData && (
           <form onSubmit={(e) => handleLogin(e)}>
-            <input type='email' onChange={(e) => setEmail(e.target.value)} />
-            <input type="password" name="" id="" onChange={(e) => setPassword(e.target.value)} />
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input type="password" value={password} name="" id="" onChange={(e) => setPassword(e.target.value)} />
             <input type="submit" value="Log ind" />
           </form>
-        }
-        <button onClick={() => setNavVis(false)}></button>
+        )}
+
+        <p>
+          Ingen bruger? Tryk <span>her</span> for at registrere
+        </p>
+
+        <button onClick={() => setNavVis(false)}>Luk</button>
       </nav>
     </div>
   );
