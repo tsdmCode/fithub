@@ -21,7 +21,7 @@ export default function Navbar({ header = '' }) {
       )}
       <h2>{header}</h2>
       <HiMenuAlt3 onClick={() => setNavVis(true)} style={{ color: '#D9D9D9', cursor: 'pointer' }} size={24} />
-      {navVis && <NavMenu navVis={navVis} setNavVis={() => setNavVis} />}
+      {navVis && <NavMenu setNavVis={() => setNavVis} />}
     </div>
   );
 }

@@ -25,7 +25,7 @@ export interface TeamDetails {
     maxParticipants: number;
     userId:          number;
     imageId:         number;
-    user:            User;
+    user:            UserDetails;
     image:           Image;
     ratings:         number[];
 }
