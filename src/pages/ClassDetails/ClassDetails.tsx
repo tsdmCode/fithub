@@ -5,8 +5,6 @@ import style from './classdetails.module.scss';
 import type { Booking, TeamDetails } from '../../types/types';
 import { AuthContext } from '../../context/AuthContext';
 import Navbar from '../../components/Navbar/Navbar';
-//Det skal ikke være muligt at tilmelde
-// sig mere end et hold på en dag.
 
 export default function ClassDetails() {
   const { userData } = useContext(AuthContext);

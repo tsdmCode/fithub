@@ -8,7 +8,6 @@ export default function Search({ teams }: { teams: Teams[] | undefined }) {
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
 
-  // const { data: teams } = useFetch<Teams[]>(import.meta.env.VITE_URL + '/api/teams');
   const filteredTeams = teams?.filter((team) => {
     const q = query.toLowerCase();
     return (

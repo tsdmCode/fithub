@@ -4,7 +4,6 @@ import useRandomIndex from '../../hooks/useRandomIndex';
 import { useNavigate } from 'react-router';
 import Navbar from '../../components/Navbar/Navbar';
 
-//todo: Brugere klikker på et billede for at få flere detaljer. sæt fetch teams logik ud i app?
 export default function Home({data}: {data: Teams[] | undefined}) {
   const randomInt = useRandomIndex(data);
   const navigate = useNavigate();
