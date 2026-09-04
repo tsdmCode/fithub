@@ -4,12 +4,9 @@ import type { Teams } from '../../types/types';
 import useRandomIndex from '../../hooks/useRandomIndex';
 import { useNavigate } from 'react-router';
 import Navbar from '../../components/Navbar/Navbar';
-// Det store billede er et tilfældigt udvalgt træningshold. Under det store billede er en
-// liste med alle hold. Brugere skal kunne swipe sig igennem listen, højre/venstre.
+
 //todo: Brugere klikker på et billede for at få flere detaljer. sæt fetch teams logik ud i app?
-//lav navbar og implementer login
 export default function Home() {
-  //et fetch teams, vælg et random, render det som en figure, render resten i en sammen der kan horizono scrollo
   const { data } = useFetch<Teams[]>(import.meta.env.VITE_URL + '/api/teams');
   const randomInt = useRandomIndex(data);
   const navigate = useNavigate();

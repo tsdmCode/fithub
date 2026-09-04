@@ -1,3 +1,84 @@
+@use '../../styles/variables' as global;
+
 .classdetailsStyle {
-    
+  @include global.CenterColumn;
+  width: 80vw;
+
+  .headerFigure {
+    font-family: global.$SECONDARYFONT;
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h2 {
+      font-weight: global.$bold;
+      font-size: global.$heroheader;
+      color: #ffffff;
+    }
+
+    figcaption {
+      position: absolute;
+      bottom: 10%;
+      left: 0;
+      right: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 5%;
+    }
+
+    button {
+      background-color: #ffffff90;
+      border-radius: 10px 0 0 10px;
+      width: 35vw;
+      height: 4rem;
+      font-size: global.$buttontext;
+      padding-right: 1.5rem;
+    }
+  }
+
+  article {
+    font-family: global.$MAINFONT;
+    font-weight: global.$regular;
+    h3 {
+      font-size: global.$subheader;
+    }
+  }
+  .schedule {
+    p:first-of-type {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .trainer {
+    width: 100%;
+    figure {
+      display: flex;
+      width: 100%;
+      margin: 0;
+      gap: 1rem;
+      line-height: 2rem;
+      
+      p {
+        margin: 0;
+        font-size: global.$smalltext;
+      }
+      
+    }
+
+    img {
+      width: 100%;
+    }
+  }
 }

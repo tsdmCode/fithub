@@ -7,7 +7,6 @@ import { AuthContext } from '../../context/AuthContext';
 import Navbar from '../../components/Navbar/Navbar';
 //Det skal ikke være muligt at tilmelde
 // sig mere end et hold på en dag.
-//todo: styling og kig i booking logik om signet etc
 
 export default function ClassDetails() {
   const { userData } = useContext(AuthContext);
@@ -27,8 +26,8 @@ export default function ClassDetails() {
     const filteredBookings = bookingData?.filter((booking) => booking.userId === userData?.user.id);
 
     if (filteredBookings?.some((b) => b.day === data?.day)) {
-      alert("Du må ikke booke mere på samme dag!");
-      return
+      alert('Du må ikke booke mere på samme dag!');
+      return;
     }
 
     try {
@@ -64,7 +63,7 @@ export default function ClassDetails() {
   return (
     <div className={style.classdetailsStyle}>
       <Navbar />
-      <figure>
+      <figure className={style.headerFigure}>
         <img src={import.meta.env.VITE_URL + data?.image.url} alt={data?.name}></img>
         <figcaption>
           <h2>{data?.name}</h2>
@@ -79,7 +78,7 @@ export default function ClassDetails() {
         </p>
         <p>{data?.description}</p>
       </article>
-      <article>
+      <article className={style.trainer}>
         <h3>Trainer</h3>
         <figure>
           <img src={import.meta.env.VITE_URL + data?.user.image.url} alt={data?.user.name} />
