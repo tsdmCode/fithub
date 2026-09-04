@@ -1,3 +1,40 @@
-.registerStyle {
+@use '../../styles/variables' as global;
 
+.registerStyle {
+  padding: 2rem 0;
+  @include global.CenterColumn;
+  font-family: global.$MAINFONT;
+  
+  form {
+    margin-top: 2rem;
+    box-sizing: border-box;
+    width: 60vw;
+
+    input {
+      display: block;
+      border-radius: 10px;
+      padding: 0.5rem;
+      box-sizing: border-box;
+    }
+
+    input[type='email'],
+    input[type='password'],
+    input[type='text'],
+    textarea {
+      width: 100%;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+    textarea {
+        resize: none;
+    }
+    input[type='submit'] {
+      border-radius: 10px;
+      background-color: global.$calmpink;
+      align-self: flex-end;
+      text-align: end;
+      margin-left: auto;
+    }
+  }
 }

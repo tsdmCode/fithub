@@ -3,7 +3,7 @@
 .classdetailsStyle {
   @include global.CenterColumn;
   width: 80vw;
-
+  padding: 2rem 0;
   .headerFigure {
     font-family: global.$SECONDARYFONT;
     position: relative;
@@ -55,6 +55,7 @@
     }
   }
   .schedule {
+    width: 100%;
     p:first-of-type {
       display: flex;
       justify-content: space-between;
@@ -68,10 +69,14 @@
       width: 100%;
       margin: 0;
       gap: 1rem;
-      line-height: 2rem;
       
-      p {
+      h4 {
         margin: 0;
+      }
+
+      p {
+        margin: 0.5rem 0;
+        line-height: 1.5rem;
         font-size: global.$smalltext;
       }
       

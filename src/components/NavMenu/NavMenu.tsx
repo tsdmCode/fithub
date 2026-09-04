@@ -1,12 +1,14 @@
 import { useContext, useState } from 'react';
 import style from './navmenu.module.scss';
-import { NavLink } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
-//todo: færdiggør styling, lav også register form og logik til det
+import { IoMdClose } from "react-icons/io";
+
 export default function NavMenu({ setNavVis }: { setNavVis: (arg0: boolean) => void }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { userData, setUserData, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   async function handleLogin(e: React.SubmitEvent) {
     e.preventDefault();
@@ -55,19 +57,26 @@ export default function NavMenu({ setNavVis }: { setNavVis: (arg0: boolean) => v
         </ul>
         {!userData && (
           <form onSubmit={(e) => handleLogin(e)}>
-            <input placeholder='Email' type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <input placeholder='Password' type="password" value={password} name="" id="" onChange={(e) => setPassword(e.target.value)} />
+            <input placeholder="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input
+              placeholder="Password"
+              type="password"
+              value={password}
+              name=""
+              id=""
+              onChange={(e) => setPassword(e.target.value)}
+            />
             <input type="submit" value="Log ind" />
           </form>
         )}
 
         {!userData && (
           <p>
-            Ingen bruger? Tryk <span>her</span> for at registrere
+            Ingen bruger? Tryk <span onClick={() =>navigate('/register')}>her</span> for at registrere
           </p>
         )}
 
-        <button onClick={() => setNavVis(false)}>Luk</button>
+        <button onClick={() => setNavVis(false)}><IoMdClose size={36}/></button>
       </nav>
     </div>
   );

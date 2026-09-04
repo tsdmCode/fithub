@@ -1,13 +1,16 @@
 @use '../../styles/variables' as global;
 
 .navmenuStyle {
-  position: absolute;
+  position: fixed;
   @include global.CenterColumn;
+  margin-left: 0;
   justify-content: center;
   align-items: center;
   z-index: 1000;
   width: 100vw;
   height: 100vh;
+  transform: translateY(-100%);
+  animation: slideIn 0.5s ease-out forwards;
   background-color: #ffffff;
   top: 0;
   left: 0;
@@ -53,11 +56,35 @@
     }
 
     input[type='submit'] {
+      width: 5rem !important;
       border-radius: 10px;
       background-color: global.$calmpink;
       align-self: flex-end;
-      text-align: end;
+      text-align: center;
       margin-left: auto;
     }
+  }
+  span,
+  input[type='submit'] {
+    cursor: pointer;
+  }
+  span {
+    text-decoration: underline;
+  }
+
+  button {
+    position: absolute;
+    right: 5rem;
+    top: 5rem;
+    padding: 1rem 2rem;
+    border: none;
+    background-color: transparent;
+  }
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

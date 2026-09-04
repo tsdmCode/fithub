@@ -1,79 +1,14 @@
-# React + TypeScript + Vite
+#Svendeprøve
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Troels Madsen
+H1WE080125
 
-Currently, two official plugins are available:
+https://github.com/tsdmCode/fithub
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+##Vurdering af egen indsats
 
-## React Compiler
+Til løsning af opgaven har jeg brugt React og SCSS. Ydermere har jeg brugt libraries som React-icons og React-Router til at hjælpe med ikoner, routing etc.
+Synes egentlig opgaven gik ret fint, bortset fra at jeg storslackede nåede jeg stadig i mål. En af mine store problemer var at jeg endte med at skulle rode en hel del med backenden for at få den til at makke ret. Har derfor også inkluderet et link til min "rettede" version af backenden. Som den valgfrie opgave havde jeg valgt at bygge et opret bruger funktion med eget view. Nogle steder har jeg valgt at ignorere designet, såsom ikke at putte en slider ind i search viewet, eller gøre sådan at hero billedet i classdetails IKKE er ovenpå Navbaren, da jeg synes det ser grimt ud og navbar'en godt kan ske at blive "udhvisket". Har også valgt at udlade "Popular trainers" delen af search viewet, da jeg føler designet ikke rigtig gør noget med det og det ser mærkeligt ud med min dynamisk opdaterende liste over hold. 
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-# fithub
+##Redegørelse for kodeelementer
+Jeg har lånt et par regexes rundt omkring til validering fra regexr.com, men også skrevet nogle af mine egne så som den jeg bruger til validate register input.

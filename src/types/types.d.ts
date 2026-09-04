@@ -1,83 +1,85 @@
 export interface Teams {
-    id:      number;
-    name:    string;
-    image:   Image;
-    user:    User;
-    ratings: number[];
+  id: number;
+  name: string;
+  day: string;
+  description: string;
+  image: Image;
+  user: User;
+  ratings: number[];
 }
 
 export interface Image {
-    url: string;
+  url: string;
 }
 
 export interface User {
-    id:          number;
-    name:        string;
-    description?: string;
+  id: number;
+  name: string;
+  description?: string;
 }
 
 export interface TeamDetails {
-    id:              number;
-    name:            string;
-    description:     string;
-    day:             string;
-    time:            string;
-    maxParticipants: number;
-    userId:          number;
-    imageId:         number;
-    user:            UserDetails;
-    image:           Image;
-    ratings:         number[];
+  id: number;
+  name: string;
+  description: string;
+  day: string;
+  time: string;
+  maxParticipants: number;
+  userId: number;
+  imageId: number;
+  user: UserDetails;
+  image: Image;
+  ratings: number[];
 }
 
 export interface Image {
-    url: string;
+  url: string;
 }
 
 export interface Booking {
-    id:     number;
-    userId: number;
-    teamId: number;
-    day:    string;
-    time:   string;
-    user:   Team;
-    team:   Team;
+  id: number;
+  userId: number;
+  teamId: number;
+  day: string;
+  time: string;
+  user: Team;
+  team: Team;
 }
 
 export interface Team {
-    name: string;
+  name: string;
 }
 
 export interface Ratings {
-    _avg: Avg;
+  _avg: Avg;
 }
 
 export interface Avg {
-    numStars: null;
+  numStars: null;
 }
 
 export interface UserDetails {
-    id:    number;
-    name:  string;
-    description?: string;
-    email: string;
-    isActive?: boolean;
-    image: Image;
+  id: number;
+  name: string;
+  description?: string;
+  email: string;
+  isActive?: boolean;
+  image: Image;
 }
 
 export interface Image {
-    url: string;
+  url: string;
 }
 
 export interface UserLoginData {
-    accessToken:  string;
-    refreshToken: string;
-    user:         UserLogin;
+  accessToken: string;
+  refreshToken: string;
+  user: UserLogin;
 }
 
 export interface UserLogin {
-    id:   number;
-    name: string;
+  id: number;
+  name: string;
 }
 
 export interface UserData {

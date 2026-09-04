@@ -1,16 +1,13 @@
 import style from './home.module.scss';
-import { useFetch } from '../../hooks/useFetch';
 import type { Teams } from '../../types/types';
 import useRandomIndex from '../../hooks/useRandomIndex';
 import { useNavigate } from 'react-router';
 import Navbar from '../../components/Navbar/Navbar';
 
 //todo: Brugere klikker på et billede for at få flere detaljer. sæt fetch teams logik ud i app?
-export default function Home() {
-  const { data } = useFetch<Teams[]>(import.meta.env.VITE_URL + '/api/teams');
+export default function Home({data}: {data: Teams[] | undefined}) {
   const randomInt = useRandomIndex(data);
   const navigate = useNavigate();
-  console.log('data:', data);
 
   const randomClass = data?.length ? data[randomInt] : null;
 

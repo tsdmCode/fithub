@@ -82,10 +82,13 @@ export default function ClassDetails() {
         <h3>Trainer</h3>
         <figure>
           <img src={import.meta.env.VITE_URL + data?.user.image.url} alt={data?.user.name} />
-          <p>
-            A highly experienced yoga instructor specializing in fluid Flow Yoga, guiding students with grace and
-            mindfulness
-          </p>
+          <article>
+            <h4>{data?.user.name}</h4>
+            <p>
+              A highly experienced yoga instructor specializing in fluid Flow Yoga, guiding students with grace and
+              mindfulness
+            </p>
+          </article>
         </figure>
       </article>
     </div>

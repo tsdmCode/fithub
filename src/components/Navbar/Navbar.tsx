@@ -9,9 +9,7 @@ export default function Navbar({ header = '' }) {
   const [navVis, setNavVis] = useState(false)
   const location = useLocation();
   const path = location.pathname;
-  console.log(path)
   const navigate = useNavigate();
-  console.log('location:', location);
 
   return (
     <div className={style.navbarStyle}>
