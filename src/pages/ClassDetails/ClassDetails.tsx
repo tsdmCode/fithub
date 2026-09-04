@@ -21,6 +21,14 @@ export default function ClassDetails() {
   async function handleSignup() {
     if (!userData) {
       alert('Log lige ind først!');
+      return;
+    }
+
+    const filteredBookings = bookingData?.filter((booking) => booking.userId === userData?.user.id);
+
+    if (filteredBookings?.some((b) => b.day === data?.day)) {
+      alert("Du må ikke booke mere på samme dag!");
+      return
     }
 
     try {
@@ -30,7 +38,7 @@ export default function ClassDetails() {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${userData?.accessToken}`,
         },
-        body: JSON.stringify({ teamId: data?.id }),
+        body: JSON.stringify({ teamId: data?.id, day: data?.day, time: data?.time }),
       });
 
       if (!res.ok) {

@@ -55,15 +55,17 @@ export default function NavMenu({ setNavVis }: { setNavVis: (arg0: boolean) => v
         </ul>
         {!userData && (
           <form onSubmit={(e) => handleLogin(e)}>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <input type="password" value={password} name="" id="" onChange={(e) => setPassword(e.target.value)} />
+            <input placeholder='Email' type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input placeholder='Password' type="password" value={password} name="" id="" onChange={(e) => setPassword(e.target.value)} />
             <input type="submit" value="Log ind" />
           </form>
         )}
 
-        <p>
-          Ingen bruger? Tryk <span>her</span> for at registrere
-        </p>
+        {!userData && (
+          <p>
+            Ingen bruger? Tryk <span>her</span> for at registrere
+          </p>
+        )}
 
         <button onClick={() => setNavVis(false)}>Luk</button>
       </nav>

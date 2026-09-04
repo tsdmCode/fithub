@@ -1,3 +1,8 @@
-.myscheduleStyle {
+@use '../../styles/variables' as global;
 
+.myscheduleStyle {
+  @include global.CenterColumn;
+  height: 100vh;
+  width: 80vw;
+  padding: 20px 0;
 }

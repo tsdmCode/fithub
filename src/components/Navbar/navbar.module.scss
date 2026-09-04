@@ -1,9 +1,14 @@
+@use "../../styles/variables" as global;
+
 .navbarStyle {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     position: relative;
+    font-family: global.$MAINFONT;
+    font-weight: 700;
+    font-size: global.$pageheader;
     h2 {
         margin: 0;
     }

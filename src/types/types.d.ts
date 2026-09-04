@@ -35,9 +35,17 @@ export interface Image {
 }
 
 export interface Booking {
-    id: number;
-    teamId: number;
+    id:     number;
     userId: number;
+    teamId: number;
+    day:    string;
+    time:   string;
+    user:   Team;
+    team:   Team;
+}
+
+export interface Team {
+    name: string;
 }
 
 export interface Ratings {

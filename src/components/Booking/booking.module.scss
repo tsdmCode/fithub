@@ -1,3 +1,19 @@
+@use "../../styles/variables" as global;
+
 .bookingStyle {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid global.$shadygray;
+    width: 100%;
+    font-family: global.$MAINFONT;
+
+    .time {
+        display: flex;
+        font-weight: 400;
+        justify-content: space-between;
+        font-size: 1rem;
+        color: #666666;
+    }
+
+    h2 {
+        font-size: global.$subheader;
+    }
 }
